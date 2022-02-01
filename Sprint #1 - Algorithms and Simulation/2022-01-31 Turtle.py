@@ -177,7 +177,7 @@ def draw_square(size=50):
     right(90)
 
 
-# In[24]:
+# In[26]:
 
 
 reset()
@@ -195,7 +195,7 @@ for i in range(10):
     print(i)
 
     if i>5:
-        print("red
+        print("red")
         pencolor("red")
 
 
