@@ -7,7 +7,7 @@
 get_ipython().run_line_magic('pylab', 'inline')
 
 
-# In[10]:
+# In[2]:
 
 
 from sci378 import *
