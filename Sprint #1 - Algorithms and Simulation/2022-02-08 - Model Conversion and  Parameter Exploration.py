@@ -15,6 +15,12 @@ from sci378 import *
 
 # ## The math
 # 
+# Google search Markdown syntax,  Latex syntax (for equations)
+# https://www.markdownguide.org/basic-syntax
+# 
+# https://victoromondi1997.github.io/blog/latex/markdown/2020/07/03/Markdown-LaTeX.html#LaTeX
+# 
+# 
 # $$
 # \frac{dx}{dt}=v
 # $$
@@ -261,6 +267,18 @@ for a in [-10,-5,0,2]:
 
 
 legend()
+
+
+# Watch out for closing parentheses -- the error may occur on the wrong line.
+
+# In[23]:
+
+
+x=(5+(2+8)*6
+   
+   
+   
+y=5
 
 
 # In[ ]:
