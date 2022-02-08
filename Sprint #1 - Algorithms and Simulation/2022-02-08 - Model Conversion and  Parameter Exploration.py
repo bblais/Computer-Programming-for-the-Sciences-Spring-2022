@@ -281,6 +281,34 @@ x=(5+(2+8)*6
 y=5
 
 
+# ## Approx Sine
+
+# In[31]:
+
+
+def approx_sine(x,order=3):
+    if order==1:
+        value=x
+    elif order==3:
+        value=x-x**3/(3*2*1)
+    else:
+        raise ValueError("Bad")
+        
+    return value 
+
+
+# In[34]:
+
+
+approx_sine(.8,order=3)
+
+
+# In[36]:
+
+
+sin(0.8)
+
+
 # In[ ]:
 
 
