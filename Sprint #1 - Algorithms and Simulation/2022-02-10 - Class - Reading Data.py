@@ -27,12 +27,13 @@ data.describe()
 data
 
 
-# In[5]:
+# In[6]:
 
 
 x=data['Bwt']
 y=data['Hwt']
 
+figure(figsize=(12,8))
 plot(x,y,'ro')
 xlabel('Body Weight [kg]')
 ylabel('Heart Weight [g]')
