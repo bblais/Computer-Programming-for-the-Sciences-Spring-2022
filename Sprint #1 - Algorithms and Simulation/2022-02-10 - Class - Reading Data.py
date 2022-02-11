@@ -40,8 +40,30 @@ ylabel('Heart Weight [g]')
 title('My Lovely Cats and Their Hearts')
 
 
+# In[7]:
+
+
+import pandas as pd
+data=pd.read_csv('https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv')
+data.describe()
+
+
+# In[8]:
+
+
+data.columns
+
+
+# In[10]:
+
+
+x=data['body_mass_g']
+y=data['flipper_length_mm']
+
+
 # In[ ]:
 
 
-
+data=pd.read_csv('https://vincentarelbundock.github.io/Rdatasets/csv/palmerpenguins/penguins.csv')
+data.describe()
 
