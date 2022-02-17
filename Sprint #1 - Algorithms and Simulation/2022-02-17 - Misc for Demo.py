@@ -34,6 +34,32 @@ figure(figsize=(3,10))
 plot(rand(100),'o')
 
 
+# In[11]:
+
+
+data=pd.read_csv('data/Orange.csv')
+
+
+# In[12]:
+
+
+data
+
+
+# In[15]:
+
+
+x=data[data['Tree']==1]['age']
+y=data[data['Tree']==1]['circumference']
+
+plot(x,y,'o')
+
+x=data[data['Tree']==2]['age']
+y=data[data['Tree']==2]['circumference']
+
+plot(x,y,'s')
+
+
 # In[ ]:
 
 
