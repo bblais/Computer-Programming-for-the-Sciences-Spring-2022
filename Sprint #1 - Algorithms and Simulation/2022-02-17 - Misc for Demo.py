@@ -13,14 +13,14 @@ get_ipython().run_line_magic('pylab', 'inline')
 from sci378 import *
 
 
-# In[6]:
+# In[23]:
 
 
 plot(rand(100),'o')
-savefig('/Users/bblais/Downloads/figure1.png',dpi=200)
+savefig('/Users/bblais/Downloads/figure1.png',dpi=300)
 
 
-# In[7]:
+# In[24]:
 
 
 plot(rand(100),'o')
@@ -84,7 +84,7 @@ legend(loc='upper right')
 get_ipython().run_line_magic('pinfo', 'legend')
 
 
-# In[21]:
+# In[22]:
 
 
 k=5
@@ -103,6 +103,8 @@ x=data[data['Tree']==2]['age']
 y=data[data['Tree']==2]['circumference']
 
 plot(x,y,'s',label=f"Sally k={k},g={g}")
+
+ylabel('This',fontsize=120)
 
 legend(loc='upper right')
 
