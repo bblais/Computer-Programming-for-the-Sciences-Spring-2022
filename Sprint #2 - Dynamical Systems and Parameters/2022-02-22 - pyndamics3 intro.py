@@ -14,7 +14,7 @@ from pyndamics3 import Simulation
 
 
 # $$
-# \frac{dx}{dt}=v
+# \frac{dy}{dt}=v
 # $$
 # 
 # 
@@ -26,30 +26,30 @@ from pyndamics3 import Simulation
 # 
 # 
 
-# In[5]:
+# In[12]:
 
 
 sim=Simulation()
-sim.add("x'=v",100,plot=True)
+sim.add("y'=v",100,plot=True)
 sim.add("v'=a",0,plot=True)
 sim.params(a=-10)
-sim.run(3)  # run until t=3
+sim.run(5)  # run until t=3
 
 
-# In[6]:
+# In[13]:
 
 
 sim=Simulation()
-sim.add("x'=v",100)
+sim.add("y'=v",100)
 sim.add("v'=a",0)
 sim.params(a=-10)
 sim.run(3)  # run until t=3
 
 
-# In[8]:
+# In[15]:
 
 
-t,x=sim.t,sim.x
+t,x=sim.t,sim.y
 plot(t,x,'r-')
 
 
