@@ -70,6 +70,53 @@ for a in [-10,-8,-6]:
 legend()
 
 
+# In[29]:
+
+
+sim=Simulation()
+sim.add("y'=v",100,plot=True)
+sim.add("v'=a",0,plot=False)
+sim.params(a=-5)
+sim.run(6.25)  # run until t=3
+
+
+# In[30]:
+
+
+t=sim.t[::50]
+y=sim.y[::50]
+y=y+randn(len(y))*5
+plot(t,y,'o')
+
+
+# In[31]:
+
+
+sim=Simulation()
+sim.add("y'=v",100,plot=True)
+sim.add("v'=a",0,plot=False)
+sim.params(a=-5)
+sim.run(6.25)  # run until t=3
+
+t=sim.t[::50]
+y=sim.y[::50]
+y=y+randn(len(y))*5
+plot(t,y,'o')
+
+
+# In[32]:
+
+
+from sci378 import *
+
+
+# In[35]:
+
+
+data=pd.DataFrame({'t':t,'y':y})
+data.to_csv('sample_position_data.csv')
+
+
 # In[ ]:
 
 
