@@ -24,6 +24,7 @@ data
 # In[5]:
 
 
+data=pd.read_csv('logistic_sample_data/logistic_sample_data_0.csv')
 t_data=data['t']
 y_data=data['y']
 
@@ -342,6 +343,57 @@ plot(t_data,x_data,'-o')
 
 plot(sim.t,sim.x)
 plot(t_data,x_data,'-o')
+
+
+# ## Y scales
+
+# In[85]:
+
+
+data=pd.read_csv('logistic_sample_data/logistic_sample_data_0.csv')
+t_data=data['t']
+y_data=data['y']
+
+new_y_data=y_data[3:]*1000
+new_t_data=t_data[3:]
+
+
+new_y_data=new_y_data-mean(new_y_data)
+plot(new_t_data,new_y_data,'-o')
+
+
+# In[86]:
+
+
+sim=Simulation()
+sim.add("x'=v",1)
+sim.add("v'=-k*x/m",0)
+sim.params(k=20,m=2)
+sim.run(50)
+
+plot(sim.t,sim.x)
+plot(new_t_data,new_y_data,'-o')
+
+
+# In[89]:
+
+
+sim=Simulation()
+sim.add("x'=v",1)
+sim.add("v'=-k*x/m",0)
+sim.params(k=20,m=2)
+sim.run(50)
+
+plot(sim.t,sim.x)
+
+
+sim=Simulation()
+sim.add("x'=v",10)
+sim.add("v'=-k*x/m",0)
+sim.params(k=20,m=2)
+sim.run(50)
+
+plot(sim.t,sim.x)
 
 
 # In[ ]:
