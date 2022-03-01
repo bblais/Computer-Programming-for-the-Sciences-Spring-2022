@@ -48,9 +48,90 @@ sim.add("x'=a*x*(1-x/k)",75)
 sim.params(a=.1,k=50)
 sim.run(50)
 
+plot(sim.t,sim.x)
+plot(t_data,y_data,'o')
+
 
 # In[17]:
 
+
+plot(sim.t,sim.x)
+plot(t_data,y_data,'o')
+
+
+# In[18]:
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",75)
+sim.params(a=0.1,k=280)
+sim.run(50)
+
+plot(sim.t,sim.x)
+plot(t_data,y_data,'o')
+
+
+# In[19]:
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",75)
+sim.params(a=5,k=280)
+sim.run(50)
+
+plot(sim.t,sim.x)
+plot(t_data,y_data,'o')
+
+
+# In[20]:
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",75)
+sim.params(a=1,k=280)
+sim.run(50)
+
+plot(sim.t,sim.x)
+plot(t_data,y_data,'o')
+
+
+# In[23]:
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",1)
+sim.params(a=1,k=280)
+sim.run(50)
+
+plot(sim.t,sim.x)
+plot(t_data,y_data,'o')
+
+
+# In[24]:
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",1)
+sim.params(a=1.5,k=280)
+sim.run(50)
+
+plot(sim.t,sim.x)
+plot(t_data,y_data,'o')
+
+
+# In[26]:
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",1)
+sim.params(a=1.5,k=270)
+sim.run(50)
 
 plot(sim.t,sim.x)
 plot(t_data,y_data,'o')
