@@ -228,7 +228,7 @@ plot(sim.t+min_t,sim.x+μ)
 plot(new_t_data,new_y_data,'o')
 
 
-# In[48]:
+# In[60]:
 
 
 sim=Simulation()
@@ -238,8 +238,8 @@ sim.params(k=2,m=1)
 sim.run(9,50)
 
 
-μ=median(new_y_data)
-plot(sim.t,sim.x+μ)
+#μ=median(new_y_data)
+plot(sim.t,sim.x+260)
 
 plot(new_t_data,new_y_data,'o')
 
@@ -265,20 +265,27 @@ data
 date_to_float(data['date'])
 
 
-# In[54]:
+# In[61]:
 
 
 x=data['date']
 y=data['total_cases']
 plot(x,y,'-o')
+title('This is broken')
 
 
-# In[58]:
+# In[62]:
 
 
-x=range(len(data))
+x=arange(len(data))
 y=data['total_cases']
 plot(x,y,'-o')
+
+
+# In[63]:
+
+
+x
 
 
 # In[57]:
