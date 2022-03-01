@@ -218,14 +218,14 @@ new_y_data=y_data[3:]
 new_t_data=t_data[3:]
 
 
-# In[46]:
+# In[64]:
 
 
 μ=median(new_y_data)
 min_t=min(new_t_data)
 plot(sim.t+min_t,sim.x+μ)
 
-plot(new_t_data,new_y_data,'o')
+plot(new_t_data,new_y_data,'-o')
 
 
 # In[60]:
@@ -292,6 +292,56 @@ x
 
 
 x
+
+
+# ## Data on different time scales
+
+# In[66]:
+
+
+data=pd.read_csv("https://vincentarelbundock.github.io/Rdatasets/csv/datasets/nottem.csv")
+data
+
+
+# In[68]:
+
+
+t_data=data['time']
+x_data=data['value']
+plot(t_data,x_data,'-o')
+
+
+# In[69]:
+
+
+sim=Simulation()
+sim.add("x'=v",1)
+sim.add("v'=-k*x/m",0)
+sim.params(k=20,m=2)
+sim.run(50)
+
+
+# In[70]:
+
+
+plot(sim.t,sim.x)
+
+
+# In[75]:
+
+
+t_data=data['time']
+x_data=data['value']
+t_data=t_data-min(t_data)
+x_data=x_data-mean(x_data)
+plot(t_data,x_data,'-o')
+
+
+# In[76]:
+
+
+plot(sim.t,sim.x)
+plot(t_data,x_data,'-o')
 
 
 # In[ ]:
