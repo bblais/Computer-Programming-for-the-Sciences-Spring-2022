@@ -399,5 +399,5 @@ plot(sim.t,sim.x)
 # In[ ]:
 
 
-
+data=pd.read_excel("filename")
 
