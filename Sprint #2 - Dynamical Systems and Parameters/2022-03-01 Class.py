@@ -137,6 +137,65 @@ plot(sim.t,sim.x)
 plot(t_data,y_data,'o')
 
 
+# ## stability of fixed points
+# 
+# - x=0
+# - x=k
+
+# In[27]:
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",0)
+sim.params(a=1.5,k=270)
+sim.run(50)
+
+plot(sim.t,sim.x)
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",270)
+sim.params(a=1.5,k=270)
+sim.run(50)
+
+plot(sim.t,sim.x)
+
+
+# In[28]:
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",0.1)
+sim.params(a=1.5,k=270)
+sim.run(50)
+
+plot(sim.t,sim.x)
+
+
+# In[30]:
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",270+.1)
+sim.params(a=1.5,k=270)
+sim.run(50)
+
+plot(sim.t,sim.x)
+
+
+sim=Simulation()
+sim.figsize=(8,4)
+sim.add("x'=a*x*(1-x/k)",270-.1)
+sim.params(a=1.5,k=270)
+sim.run(50)
+
+plot(sim.t,sim.x)
+
+
+
 # In[ ]:
 
 
