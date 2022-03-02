@@ -247,26 +247,27 @@ plot(new_t_data,new_y_data,'o')
 
 # ## Data with dates
 
-# In[52]:
+# In[5]:
 
 
+get_ipython().run_line_magic('pylab', 'inline')
 from sci378 import *
 
 
-# In[51]:
+# In[6]:
 
 
 data=pd.read_csv('http://jooskorstanje.com/full_data_logistic.csv',sep=';')
 data
 
 
-# In[53]:
+# In[22]:
 
 
-date_to_float(data['date'])
+date_to_float(data['date'],"european")
 
 
-# In[61]:
+# In[23]:
 
 
 x=data['date']
@@ -275,15 +276,15 @@ plot(x,y,'-o')
 title('This is broken')
 
 
-# In[62]:
+# In[24]:
 
 
-x=arange(len(data))
+x=date_to_float(data['date'],"european")
 y=data['total_cases']
 plot(x,y,'-o')
 
 
-# In[63]:
+# In[25]:
 
 
 x
