@@ -57,21 +57,28 @@ pd.read_csv('c:/Users/bblais/Downloads/somefile.csv')
 pd.read_csv('logistic_sample_data/logistic_sample_data_0.csv')
 
 
-# In[34]:
+# In[41]:
 
 
 data=pd.read_csv('FISH_LAND.csv')
 data
 
 
-# In[38]:
+# In[42]:
+
+
+set(data['Species'])
+
+
+# In[39]:
 
 
 data=data[data['Species']=='Japanese seabass [Lateolabrax japonicus]']
+data=data[data['MEASURE']=='TON']
 data
 
 
-# In[37]:
+# In[40]:
 
 
 t=data['Year']
