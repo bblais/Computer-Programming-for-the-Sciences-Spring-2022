@@ -70,7 +70,7 @@ data
 set(data['Species'])
 
 
-# In[39]:
+# In[43]:
 
 
 data=data[data['Species']=='Japanese seabass [Lateolabrax japonicus]']
@@ -78,12 +78,21 @@ data=data[data['MEASURE']=='TON']
 data
 
 
-# In[40]:
+# In[44]:
 
 
 t=data['Year']
 y=data['Value']
 plot(t,y,'o')
+
+
+# In[46]:
+
+
+t=data['Year']
+y=data['Value']/1000
+plot(t,y,'o')
+ylabel('Tons [thousands]')
 
 
 # In[ ]:
