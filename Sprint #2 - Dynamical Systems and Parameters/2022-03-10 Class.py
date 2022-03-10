@@ -29,7 +29,7 @@ x=data['Americans with Cellular Service (%)']
 t=t-min(t)  # this data doesn't start at t=0, so adjust
 
 
-# In[17]:
+# In[52]:
 
 
 sim=Simulation()
@@ -54,6 +54,29 @@ sim.add("x' = a*x*(1-x/K)",110)
 sim.params(a=.25,K=110)
 sim.run(20)
 plot(sim.t,sim.x,'r-')
+
+xlabel('Time [years]')
+ylabel('Percent Cell Service')
+
+
+# probably easier to do this in powerpoint, but this gives you the idea
+
+text(12, 60, "Equation: $x'=ax(1-x/K)$", style='italic',
+        bbox={'facecolor': 'red', 'alpha': 0.5, 'pad': 10})
+text(12, 40, "FP: $ax(1-x/K)=0$\n$x=0,x=K$", style='italic',
+        bbox={'facecolor': 'red', 'alpha': 0.5, 'pad': 10})
+text(0, 70, "Params: $a=0.25, K=110$", style='italic',
+        bbox={'facecolor': 'red', 'alpha': 0.5, 'pad': 10})
+
+
+annotate('$x=0$ fixed point (unstable)',(18,0),xytext=(12,10), arrowprops=dict(arrowstyle="->"))
+annotate('$x=K$ fixed point (stable)',(1,109),xytext=(1,90), arrowprops=dict(arrowstyle="->"))
+
+
+# In[23]:
+
+
+get_ipython().run_line_magic('pinfo', 'annotate')
 
 
 # In[ ]:
