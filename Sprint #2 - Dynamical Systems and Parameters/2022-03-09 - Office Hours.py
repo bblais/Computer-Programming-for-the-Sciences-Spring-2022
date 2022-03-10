@@ -31,20 +31,20 @@ data.head(10)
 
 
 
-# In[7]:
+# In[5]:
 
 
 t=date_to_float(data['Date'])
 c=data['Confirmed']
 
 
-# In[10]:
+# In[ ]:
 
 
 
 
 
-# In[14]:
+# In[6]:
 
 
 N=700
@@ -53,19 +53,19 @@ plot(t[:N],c[:N])
 t,c=t[:N],c[:N]
 
 
-# In[16]:
+# In[7]:
 
 
 plot(t,c,'o-')
 
 
-# In[17]:
+# In[8]:
 
 
 diff([1,2,4,5,8,9,10])
 
 
-# In[18]:
+# In[9]:
 
 
 t_data=t[1:]
@@ -79,16 +79,19 @@ plot(t_data,I_data,'o-')
 
 
 
-# In[ ]:
+# In[12]:
 
 
+I2=I_data[(2021.5<t_data) & (t_data<2021.75)]
+t2=t_data[(2021.5<t_data) & (t_data<2021.75)]
+
+t2=t2-min(t2)
 
 
-
-# In[ ]:
-
+# In[13]:
 
 
+plot(t2,I2,'-o')
 
 
 # In[ ]:
