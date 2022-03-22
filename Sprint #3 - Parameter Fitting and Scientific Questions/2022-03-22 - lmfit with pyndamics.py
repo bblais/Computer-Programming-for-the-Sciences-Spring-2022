@@ -7,6 +7,8 @@
 get_ipython().run_line_magic('pylab', 'inline')
 
 
+# https://lmfit.github.io/lmfit-py/
+
 # In[3]:
 
 
@@ -132,6 +134,19 @@ results
 
 
 sim.run(80)
+
+
+# In[28]:
+
+
+results=fit(sim,
+           Parameter("a",value=1,min=0,max=10),
+           Parameter("initial_y",value=1,min=0),
+           Parameter("k",value=30,min=0),
+            method="Powell"
+           )
+sim.run(80)
+results
 
 
 # In[ ]:
