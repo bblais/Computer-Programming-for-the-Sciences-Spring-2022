@@ -67,6 +67,73 @@ sim.a
 sim.run(80)
 
 
+# ## Logistic growth
+
+# In[12]:
+
+
+sim=Simulation()
+sim.add("y' = a*y*(1-y/k)",1,plot=True)
+sim.params(a=1,k=30)
+sim.add_data(t=t_data,y=h_data,plot=True)
+sim.run(80)
+
+
+# In[17]:
+
+
+results=fit(sim,
+           Parameter("a",value=1,min=0,max=10),
+           Parameter("k",value=30,min=0),
+           )
+
+
+# In[18]:
+
+
+sim.run(80)
+
+
+# In[16]:
+
+
+results
+
+
+# In[22]:
+
+
+results=fit(sim,
+           Parameter("a",value=1,min=0,max=10),
+           Parameter("initial_y",value=1,min=0),
+           Parameter("k",value=30,min=0),
+           )
+results
+
+
+# In[20]:
+
+
+sim.run(80)
+
+
+# In[25]:
+
+
+results=fit(sim,
+           Parameter("a",value=1,min=0,max=10),
+           Parameter("initial_y",value=1,min=0,max=20),
+           Parameter("k",value=30,min=0),
+           )
+results
+
+
+# In[26]:
+
+
+sim.run(80)
+
+
 # In[ ]:
 
 
