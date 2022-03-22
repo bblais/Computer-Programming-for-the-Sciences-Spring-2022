@@ -136,6 +136,8 @@ results
 sim.run(80)
 
 
+# https://lmfit.github.io/lmfit-py/fitting.html?highlight=powell  methods described here, Powell works sometimes
+
 # In[28]:
 
 
