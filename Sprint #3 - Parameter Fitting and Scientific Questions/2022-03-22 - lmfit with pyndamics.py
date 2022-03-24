@@ -1,15 +1,21 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 get_ipython().run_line_magic('pylab', 'inline')
 
 
+# In[5]:
+
+
+import pandas as pd
+
+
 # https://lmfit.github.io/lmfit-py/
 
-# In[3]:
+# In[2]:
 
 
 from pyndamics3 import Simulation
@@ -38,7 +44,7 @@ sim.params(a=1)
 sim.run(80)
 
 
-# In[7]:
+# In[3]:
 
 
 from pyndamics3.fit import fit, Parameter
@@ -149,6 +155,77 @@ results=fit(sim,
            )
 sim.run(80)
 results
+
+
+# ## population data
+
+# In[10]:
+
+
+data=pd.read_csv('data/s007.csv')
+x_data=data['year']-1700
+y_data=data['population (millions)']
+data
+
+
+# In[11]:
+
+
+sim=Simulation()
+sim.add("y' = a*y*(1-y/k)",1,plot=True)
+sim.params(a=1,k=30)
+sim.add_data(t=x_data,y=y_data,plot=True)
+sim.run(80)
+
+
+# In[12]:
+
+
+results=fit(sim,
+           Parameter("a",value=1,min=0,max=10),
+           Parameter("initial_y",value=1,min=0,max=20),
+           Parameter("k",value=30,min=0),
+           )
+results
+
+
+# How to deal with nans -- drop them when you load them from pandas
+
+# In[13]:
+
+
+data=pd.read_csv('data/s007.csv')
+data=data.dropna()
+x_data=data['year']-1700
+y_data=data['population (millions)']
+data
+
+
+# In[15]:
+
+
+sim=Simulation()
+sim.add("y' = a*y*(1-y/k)",1,plot=True)
+sim.params(a=1,k=30)
+sim.add_data(t=x_data,y=y_data,plot=True)
+sim.run(300)
+
+
+# In[16]:
+
+
+results=fit(sim,
+           Parameter("a",value=1,min=0,max=10),
+           Parameter("initial_y",value=1,min=0,max=20),
+           Parameter("k",value=30,min=0),
+           )
+results
+
+
+# In[17]:
+
+
+sim.run(300)
 
 
 # In[ ]:

@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
+# In[5]:
 
 
 get_ipython().run_line_magic('pylab', 'inline')
 
 
-# In[5]:
+# In[6]:
 
 
 from sci378 import *
 
 
-# In[6]:
+# In[7]:
 
 
 from lmfit import *
@@ -156,10 +156,25 @@ plot(x_fake,y_fake,'-')
 
 
 
-# In[ ]:
+# ## random population file
+
+# In[9]:
 
 
+data=pd.read_csv('data/s007.csv')
+x_data=data['year']
+y_data=data['population (millions)']
+data
 
+
+# (do not use the quad model on this data - bad -- but I'm showing something else, so I'll do it anyway)
+
+# In[10]:
+
+
+qmodel=models.QuadraticModel()
+params=qmodel.make_params()
+result = qmodel.fit(y_data, params, x=x_data)
 
 
 # In[ ]:
