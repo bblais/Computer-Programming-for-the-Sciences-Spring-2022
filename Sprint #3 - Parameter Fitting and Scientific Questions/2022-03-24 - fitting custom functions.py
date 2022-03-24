@@ -51,6 +51,12 @@ def quad(x,a=1,b=1,c=1):
     return a*x**2 + b*x + c
 
 
+# In[ ]:
+
+
+
+
+
 # ## Step 2 - define the model and construct the parameter list
 
 # In[18]:
@@ -94,7 +100,7 @@ result = qmodel.fit(y_data, params, x=x_data)
 result
 
 
-# ## Step 5 - plot your date and the predictions of the model
+# ## Step 5 - plot your data and the predictions of the model
 
 # In[23]:
 
