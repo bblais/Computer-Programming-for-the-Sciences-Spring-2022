@@ -201,7 +201,7 @@ y_data=data['population (millions)']
 data
 
 
-# In[15]:
+# In[18]:
 
 
 sim=Simulation()
@@ -211,7 +211,7 @@ sim.add_data(t=x_data,y=y_data,plot=True)
 sim.run(300)
 
 
-# In[16]:
+# In[19]:
 
 
 results=fit(sim,
@@ -222,10 +222,18 @@ results=fit(sim,
 results
 
 
-# In[17]:
+# In[20]:
 
 
 sim.run(300)
+
+
+# In[22]:
+
+
+plot(x_data,y_data,'o')
+plot(sim.t,sim.y,'-')
+xlabel('time [minutes]')
 
 
 # In[ ]:
