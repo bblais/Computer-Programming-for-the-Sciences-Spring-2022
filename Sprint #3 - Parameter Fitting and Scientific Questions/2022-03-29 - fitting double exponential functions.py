@@ -108,12 +108,13 @@ result
 linspace(0,5,20)
 
 
-# In[19]:
+# In[35]:
 
 
-x_fake=linspace(0,5,100)
+x_fake=linspace(0,5,30)
 y_fake=.5*exp(-x_fake/2)
 plot(x_fake,y_fake,'-')
+x_fake
 
 
 # In[ ]:
