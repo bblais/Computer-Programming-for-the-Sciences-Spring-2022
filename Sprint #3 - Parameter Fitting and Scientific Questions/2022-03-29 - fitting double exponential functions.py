@@ -24,7 +24,7 @@ from lmfit import *
 # ## This "Another Data Set" from 2022-03-24 fitting custom functions
 # 
 
-# In[ ]:
+# In[4]:
 
 
 x_data,y_data=(array([0.        , 0.12820513, 0.25641026, 0.38461538, 0.51282051,
@@ -45,7 +45,7 @@ x_data,y_data=(array([0.        , 0.12820513, 0.25641026, 0.38461538, 0.51282051
          0.16435838,  0.04113969, -0.03053311,  0.0710629 ,  0.08495973]))
 
 
-# In[ ]:
+# In[5]:
 
 
 plot(x_data,y_data,'o')
@@ -53,72 +53,178 @@ plot(x_data,y_data,'o')
 
 # ## Step 1 - define the function
 
-# In[ ]:
+# In[6]:
 
 
-# def quad(x,a=1,b=1,c=1):
-#     return a*x**2 + b*x + c
-
-
-# In[ ]:
-
-
-
+def exponential(x,A=1,B=1):
+    return A*exp(-x/B)
 
 
 # ## Step 2 - define the model and construct the parameter list
 
-# In[ ]:
+# In[7]:
 
 
-# qmodel=Model(quad)   # from lmfit
+mymodel=Model(exponential)   # from lmfit
 
 
-# In[ ]:
+# In[8]:
 
 
-# qmodel.param_names
+mymodel.param_names
 
 
-# In[ ]:
+# In[9]:
 
 
-# params=qmodel.make_params()
-# params
+params=mymodel.make_params()
+params
 
 
 # ## Step 3 - modify the parameter list (min, max, etc...) as needed
 
-# In[ ]:
+# In[11]:
 
 
-# params['a']=Parameter("a",min=0,value=0.5)
+params['A']=Parameter("A",min=0,value=1)
+params['B']=Parameter("B",min=0,value=1)
+params
 
 
 # ## Step 4 - do the fit, look at the parameter values (do they make sense?), etc...
 
-# In[ ]:
+# In[12]:
 
 
-# result = qmodel.fit(y_data, params, x=x_data)
-
-
-# In[ ]:
-
-
-# result
+result = mymodel.fit(y_data, params, x=x_data)
+result
 
 
 # ## Step 5 - plot your data and the predictions of the model
 
+# In[14]:
+
+
+linspace(0,5,20)
+
+
+# In[19]:
+
+
+x_fake=linspace(0,5,100)
+y_fake=.5*exp(-x_fake/2)
+plot(x_fake,y_fake,'-')
+
+
 # In[ ]:
 
 
-# plot(x_data,y_data,'o')
 
-# x_fake=linspace(-12,12,100)
-# y_fake=result.eval(x=x_fake)
-# plot(x_fake,y_fake,'-')
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[13]:
+
+
+plot(x_data,y_data,'o')
+
+x_fake=linspace(0,5,100)
+y_fake=result.eval(x=x_fake)
+plot(x_fake,y_fake,'-')
+
+
+# ## play with the functional form
+
+# In[22]:
+
+
+x=linspace(0,5,100)
+A=3
+B=0.1
+C=1
+D=10
+y=A*exp(-x/B)+C*exp(-x/D)
+plot(x,y)
+
+y=A*exp(-x/B)
+plot(x,y)
+
+y=C*exp(-x/D)
+plot(x,y)
+
+text(1,2.5,f"A={A}, B={B}, C={C}, D={D}")
+
+
+# In[23]:
+
+
+x=linspace(0,5,100)
+A=3
+B=1
+C=1
+D=5
+y=A*exp(-x/B)+C*exp(-x/D)
+plot(x,y)
+
+y=A*exp(-x/B)
+plot(x,y)
+
+y=C*exp(-x/D)
+plot(x,y)
+
+text(1,2.5,f"A={A}, B={B}, C={C}, D={D}")
+
+
+# In[28]:
+
+
+def double_exponential(x,A=1,B=1,C=1,D=1):
+    return A*exp(-x/B)+C*exp(-x/D)
+
+
+# In[29]:
+
+
+mymodel=Model(double_exponential)   # from lmfit
+
+
+# In[30]:
+
+
+params=mymodel.make_params()
+params['A']=Parameter("A",min=0,value=1)
+params['B']=Parameter("B",min=0,value=1)
+params['C']=Parameter("C",min=0,value=1)
+params['D']=Parameter("D",min=0,value=1)
+params
+
+
+# In[31]:
+
+
+result = mymodel.fit(y_data, params, x=x_data)
+result
+
+
+# In[32]:
+
+
+plot(x_data,y_data,'o')
+
+x_fake=linspace(0,5,100)
+y_fake=result.eval(x=x_fake)
+plot(x_fake,y_fake,'-')
 
 
 # In[ ]:
