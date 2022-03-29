@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[5]:
 
 
 get_ipython().run_line_magic('pylab', 'inline')
 
 
-# In[2]:
+# In[6]:
 
 
 from sci378 import *
 
 
-# In[3]:
+# In[7]:
 
 
 from lmfit import *
@@ -21,7 +21,7 @@ from lmfit import *
 
 # See: https://lmfit.github.io/lmfit-py/builtin_models.html  for more examples
 
-# In[4]:
+# In[7]:
 
 
 x_data,y_data=(array([-10.        ,  -8.94736842,  -7.89473684,  -6.84210526,
@@ -36,7 +36,7 @@ x_data,y_data=(array([-10.        ,  -8.94736842,  -7.89473684,  -6.84210526,
          62.75223289,  58.16212626, 111.04251023,  83.52494712]))
 
 
-# In[5]:
+# In[8]:
 
 
 plot(x_data,y_data,'o')
@@ -44,7 +44,7 @@ plot(x_data,y_data,'o')
 
 # ## Step 1 - define the function
 
-# In[6]:
+# In[17]:
 
 
 def quad(x,a=1,b=1,c=1):
@@ -59,19 +59,19 @@ def quad(x,a=1,b=1,c=1):
 
 # ## Step 2 - define the model and construct the parameter list
 
-# In[7]:
+# In[18]:
 
 
 qmodel=Model(quad)   # from lmfit
 
 
-# In[8]:
+# In[19]:
 
 
 qmodel.param_names
 
 
-# In[9]:
+# In[20]:
 
 
 params=qmodel.make_params()
@@ -80,7 +80,7 @@ params
 
 # ## Step 3 - modify the parameter list (min, max, etc...) as needed
 
-# In[10]:
+# In[13]:
 
 
 params['a']=Parameter("a",min=0,value=0.5)
@@ -88,47 +88,19 @@ params['a']=Parameter("a",min=0,value=0.5)
 
 # ## Step 4 - do the fit, look at the parameter values (do they make sense?), etc...
 
-# In[11]:
+# In[21]:
 
 
 result = qmodel.fit(y_data, params, x=x_data)
 
 
-# In[12]:
+# In[22]:
 
 
 result
 
 
 # ## Step 5 - plot your data and the predictions of the model
-
-# In[15]:
-
-
-x2=linspace(-12,12,20)
-y2=-.9*x2**2+.6*x2-.6
-x2,y2
-
-
-# In[16]:
-
-
-plot(x2,y2,'o')
-
-
-# In[17]:
-
-
-x2=linspace(-12,12,200)
-y2=-.9*x2**2+.6*x2-.6
-plot(x2,y2,'-')
-
-
-# In[ ]:
-
-
-
-
 
 # In[23]:
 

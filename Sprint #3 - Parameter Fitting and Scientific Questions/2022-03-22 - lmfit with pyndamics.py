@@ -211,18 +211,18 @@ sim.add_data(t=x_data,y=y_data,plot=True)
 sim.run(300)
 
 
-# In[19]:
+# In[23]:
 
 
 results=fit(sim,
            Parameter("a",value=1,min=0,max=10),
-           Parameter("initial_y",value=1,min=0,max=20),
+           Parameter("initial_y",value=8,min=0,max=20),
            Parameter("k",value=30,min=0),
            )
 results
 
 
-# In[20]:
+# In[24]:
 
 
 sim.run(300)
