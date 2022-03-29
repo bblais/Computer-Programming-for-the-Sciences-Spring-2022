@@ -31,7 +31,7 @@ data=pd.read_csv('data/station.csv')
 data
 
 
-# In[7]:
+# In[24]:
 
 
 x=data['YEAR']
@@ -44,39 +44,39 @@ y=y[y<200]
 plot(x,y,'-o')
 
 
-# In[9]:
+# In[25]:
 
 
 mymodel=models.LinearModel()
 mymodel.param_names
 
 
-# In[10]:
+# In[26]:
 
 
 params=mymodel.make_params()
 
 
-# In[11]:
+# In[27]:
 
 
 result = mymodel.fit(y, params, x=x)
 
 
-# In[12]:
+# In[28]:
 
 
 result
 
 
-# In[17]:
+# In[29]:
 
 
 slope=result.params['slope'].value
 slope
 
 
-# In[23]:
+# In[30]:
 
 
 plot(x,y,'-o')
@@ -85,6 +85,35 @@ x_fake=linspace(1990,2022,100)
 y_fake=result.eval(x=x_fake)
 plot(x_fake,y_fake,'-')
 title(f'Slope={slope}')
+
+
+# In[31]:
+
+
+plot(x,y,'-o')
+
+x_fake=linspace(min(x),max(x),100)
+y_fake=result.eval(x=x_fake)
+plot(x_fake,y_fake,'-')
+title(f'Slope={slope}')
+
+
+# In[32]:
+
+
+data=pd.read_csv('data/crichton/time series data pandas.csv.zip')
+
+
+# In[33]:
+
+
+data.head()
+
+
+# In[34]:
+
+
+data.to_excel('blah.xlsx')
 
 
 # In[ ]:
