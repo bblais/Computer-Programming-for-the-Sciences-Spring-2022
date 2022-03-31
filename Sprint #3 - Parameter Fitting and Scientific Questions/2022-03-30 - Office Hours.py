@@ -46,11 +46,11 @@ def f(x,a,b,c,d):
     return a/(1+exp(-c*(x-d)))+b
 
 
-# In[16]:
+# In[23]:
 
 
 xx=linspace(0,50,1000)
-yy=f(xx,a=200,b=0.5,c=20,d=0.5)
+yy=f(xx,a=600,b=0.5,c=20,d=0.5)
 
 plot(t,y,'o')
 plot(xx,yy,'-')
