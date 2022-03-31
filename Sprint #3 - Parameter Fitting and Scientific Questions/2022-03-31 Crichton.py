@@ -309,10 +309,12 @@ from tqdm import tqdm
 
 S=Storage()
 
-for i,row in tqdm(station_data.iterrows()):
+for i,row in tqdm(station_data.iterrows()): # go through all the stations
     U_name=row.Station
-    if not isurban(U_name):
+    if not isurban(U_name):  # if it's rural, go to the next station
         continue
+        
+    # if you are here, you're an urban station
         
     U_slope=get_slope(U_name)
     
@@ -322,6 +324,12 @@ for i,row in tqdm(station_data.iterrows()):
     S+=U_slope,R_slope
     
 U_slope,R_slope=S.arrays()
+
+
+# In[99]:
+
+
+len(U_slope)
 
 
 # In[ ]:

@@ -72,6 +72,28 @@ arctan2(4,5)  # this is the arc cotangent
 
 # compare with https://www.wolframalpha.com/input?i=arccot%285%2F4%29
 
+# In[4]:
+
+
+data=pd.read_csv('data/g149novickA.txt')
+data
+
+
+# In[5]:
+
+
+data=pd.read_csv('data/g149novickA.txt',header=None)
+data
+
+
+# In[6]:
+
+
+data=pd.read_csv('data/g149novickA.txt',header=None)
+data.columns=['time','activity']
+data
+
+
 # In[ ]:
 
 

@@ -26,14 +26,14 @@ data=pd.read_csv('data/peaks/sample0.csv')
 data.head()
 
 
-# In[7]:
+# In[8]:
 
 
 t=data['t']
 y=data['y']
 
 
-# In[8]:
+# In[9]:
 
 
 plot(t,y,'o')
@@ -53,7 +53,7 @@ results=model.fit(y,x=t,amplitude=1e7,center=1,sigma=1)
 results
 
 
-# In[12]:
+# In[15]:
 
 
 x_fake=linspace(0,2,2000)
@@ -61,6 +61,11 @@ y_fake=results.eval(x=x_fake)
 plot(t,y,'o')
 plot(x_fake,y_fake,'-')
 xlim([.9,1.3])
+
+A=results.best_values['amplitude']
+c=results.best_values['center']
+σ=results.best_values['sigma']
+text(.91,1.2e7,f"A={A}\nc={c}\nσ={σ}")
 
 
 # In[13]:
