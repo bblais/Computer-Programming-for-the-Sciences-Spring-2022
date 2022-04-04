@@ -1,19 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[4]:
 
 
 get_ipython().run_line_magic('pylab', 'inline')
 
 
-# In[2]:
+# In[5]:
 
 
 from sci378 import *
 
 
-# In[3]:
+# In[6]:
 
 
 from lmfit import *
@@ -92,11 +92,17 @@ plot(xx,yy,'-')
 xlim([.9,1.3])
 
 
-# In[34]:
+# In[1]:
 
 
 from glob import glob
 from tqdm import tqdm
+
+
+# In[3]:
+
+
+glob('data/peaks/sample4*.csv')
 
 
 # In[35]:
@@ -157,14 +163,14 @@ hist(A,30);
 # 
 # ![image.png](attachment:dfc3746b-1c8b-4f02-bc5e-ae75d3afeb61.png)
 
-# In[42]:
+# In[7]:
 
 
 data=pd.read_csv('data/logistic_sample_data/logistic_sample_data_0.csv')
 data
 
 
-# In[44]:
+# In[8]:
 
 
 t=data['t']
@@ -172,14 +178,14 @@ y=data['y']
 plot(t,y,'o')
 
 
-# In[45]:
+# In[9]:
 
 
 def f(x,a=1,b=1,c=1,d=1):
     return a/(1+exp(-c*(x-d)))+b
 
 
-# In[46]:
+# In[10]:
 
 
 xx=linspace(0,50,1000)
@@ -189,7 +195,7 @@ plot(t,y,'o')
 plot(xx,yy,'-')
 
 
-# In[57]:
+# In[12]:
 
 
 mymodel=Model(f)   # from lmfit
@@ -197,22 +203,22 @@ params=mymodel.make_params()
 params['a']=Parameter("a",min=0,max=1000,value=1)
 params['b']=Parameter("b",min=0,max=1000,value=1)
 params['c']=Parameter("c",min=0,max=5,value=1)
-params['d']=Parameter("d",min=0,max=5,value=1)
+params['d']=Parameter("d",min=-1000,max=1000,value=1)
 
 
-# In[58]:
+# In[13]:
 
 
 result = mymodel.fit(y, params, x=t)
 
 
-# In[59]:
+# In[14]:
 
 
 result
 
 
-# In[61]:
+# In[15]:
 
 
 plot(t,y,'o')
@@ -222,7 +228,7 @@ yy=result.eval(x=tt)
 plot(tt,yy,'-')
 
 
-# In[68]:
+# In[25]:
 
 
 def fit_logistic(filename,display=False):
@@ -234,7 +240,7 @@ def fit_logistic(filename,display=False):
     params['a']=Parameter("a",min=0,max=1000,value=1)
     params['b']=Parameter("b",min=0,max=1000,value=1)
     params['c']=Parameter("c",min=0,max=5,value=1)
-    params['d']=Parameter("d",min=0,max=5,value=1)
+    params['d']=Parameter("d",min=0,max=10,value=1)
 
     result = mymodel.fit(y, params, x=t)
     
@@ -248,13 +254,13 @@ def fit_logistic(filename,display=False):
     return result
 
 
-# In[69]:
+# In[26]:
 
 
 result=fit_logistic('data/logistic_sample_data/logistic_sample_data_0.csv',display=True)
 
 
-# In[71]:
+# In[27]:
 
 
 filenames=glob('data/logistic_sample_data/log*.csv')
@@ -270,7 +276,7 @@ K=S.arrays()
 hist(K,30);
 
 
-# In[72]:
+# In[28]:
 
 
 for i,name in enumerate(filenames):
