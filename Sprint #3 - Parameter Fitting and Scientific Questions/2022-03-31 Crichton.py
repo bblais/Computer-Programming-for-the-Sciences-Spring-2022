@@ -26,14 +26,14 @@ from lmfit import *
 #         - find slope
 # 
 
-# In[5]:
+# In[4]:
 
 
 data=pd.read_csv('data/crichton/time series data pandas.csv.zip')
 data.head()
 
 
-# In[36]:
+# In[5]:
 
 
 # Brightness > 10 = urban
@@ -41,7 +41,7 @@ station_data=pd.read_excel('data/crichton/station_info.xlsx')
 station_data.head(20)
 
 
-# In[9]:
+# In[6]:
 
 
 len(station_data)
@@ -49,7 +49,7 @@ len(station_data)
 
 # ## find slope
 
-# In[14]:
+# In[7]:
 
 
 name="SAVE"
@@ -58,13 +58,13 @@ temp=data[name]
 plot(time,temp,'-o')
 
 
-# In[13]:
+# In[8]:
 
 
 temp
 
 
-# In[22]:
+# In[9]:
 
 
 def get_slope(name,display=False):
@@ -87,31 +87,31 @@ def get_slope(name,display=False):
     return slope
 
 
-# In[23]:
+# In[10]:
 
 
 get_slope("SAVE",display=True)
 
 
-# In[24]:
+# In[11]:
 
 
 name
 
 
-# In[28]:
+# In[12]:
 
 
 station_data['Brightness'][station_data['Station']==name]>=10
 
 
-# In[40]:
+# In[13]:
 
 
 array((station_data['Brightness'][station_data['Station']==name]>=10))[0]
 
 
-# In[41]:
+# In[14]:
 
 
 def isurban(name):
@@ -121,7 +121,7 @@ def isurban(name):
         return False
 
 
-# In[67]:
+# In[15]:
 
 
 def latitude(name=None):
@@ -136,26 +136,26 @@ def longitude(name=None):
         return array(station_data['Longitude'][station_data['Station']==name])[0]
 
 
-# In[68]:
+# In[16]:
 
 
 latitude("SAVE"),longitude("SAVE")
 
 
-# In[69]:
+# In[17]:
 
 
 latitude()
 
 
-# In[70]:
+# In[18]:
 
 
 d2=(latitude()-latitude("SAVE"))**2+(longitude()-longitude("SAVE"))**2
 argmin(d2)
 
 
-# In[59]:
+# In[19]:
 
 
 min_dist=1e500
@@ -178,68 +178,68 @@ for index,row in station_data.iterrows():
 
 
 
-# In[57]:
+# In[20]:
 
 
 row.Station
 
 
-# In[42]:
+# In[21]:
 
 
 isurban("SAVE")
 
 
-# In[43]:
+# In[22]:
 
 
 isurban("HERAT")
 
 
-# In[44]:
+# In[23]:
 
 
 station_data['Latitude']
 
 
-# In[60]:
+# In[24]:
 
 
 station_data.T
 
 
-# In[61]:
+# In[25]:
 
 
 S=station_data.T
 S.columns=station_data.Station
 
 
-# In[62]:
+# In[26]:
 
 
 S
 
 
-# In[63]:
+# In[27]:
 
 
 S[name]
 
 
-# In[71]:
+# In[28]:
 
 
 station_data['d2']=(latitude()-latitude(name))**2+(longitude()-longitude(name))**2
 
 
-# In[74]:
+# In[29]:
 
 
 station_data.sort_values('d2')
 
 
-# In[81]:
+# In[30]:
 
 
 def closest_rural(name):
@@ -255,7 +255,7 @@ def closest_rural(name):
     raise ValueError("You can't get there from here.")
 
 
-# In[82]:
+# In[31]:
 
 
 closest_rural("SAVE")
@@ -298,13 +298,13 @@ closest_rural("SAVE")
 #         - find slope
 # 
 
-# In[83]:
+# In[32]:
 
 
 from tqdm import tqdm
 
 
-# In[97]:
+# In[33]:
 
 
 S=Storage()
@@ -326,7 +326,7 @@ for i,row in tqdm(station_data.iterrows()): # go through all the stations
 U_slope,R_slope=S.arrays()
 
 
-# In[99]:
+# In[34]:
 
 
 len(U_slope)
