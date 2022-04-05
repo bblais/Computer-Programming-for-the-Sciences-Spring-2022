@@ -49,12 +49,15 @@ plot(x,y,'o')
 axis('equal')
 
 
-# In[14]:
+# In[17]:
 
 
-x=randn(10000)
-y=randn(10000)
+x=randn(10000)+.3
+y=randn(10000)+.2
 plot(x,y,'o',alpha=0.05)
+plot([0,0],[-4,4],'k-')
+plot([-4,4],[0,0],'k-')
+
 axis('equal')
 
 
