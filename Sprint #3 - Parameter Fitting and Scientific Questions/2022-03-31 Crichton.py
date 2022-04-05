@@ -332,6 +332,24 @@ U_slope,R_slope=S.arrays()
 len(U_slope)
 
 
+# In[36]:
+
+
+U_slope
+
+
+# In[37]:
+
+
+data=pd.DataFrame({'U':U_slope,'R':R_slope})
+
+
+# In[38]:
+
+
+data.to_csv("data/RU_Crichton.csv")
+
+
 # In[ ]:
 
 
