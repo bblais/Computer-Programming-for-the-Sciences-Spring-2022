@@ -51,6 +51,16 @@ def quad(x,a=1,b=1,c=1):
     return a*x**2 + b*x + c
 
 
+# ## Step 1a - check that your function makes sense -- parameter exploration!
+
+# In[10]:
+
+
+x=linspace(0,10,100)
+y=quad(x,a=-5,b=4,c=3)
+plot(x,y)
+
+
 # In[ ]:
 
 
