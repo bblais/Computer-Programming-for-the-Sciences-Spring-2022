@@ -68,9 +68,10 @@ t2=sim.t
 y2=sim.y
 
 
-# In[25]:
+# In[26]:
 
 
+plot(t_data,h_data,'o')
 plot(t1,y1,'b-')
 plot(t2,y2,'r--')
 

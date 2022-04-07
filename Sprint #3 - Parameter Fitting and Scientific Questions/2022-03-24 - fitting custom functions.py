@@ -88,13 +88,13 @@ params['a']=Parameter("a",min=0,value=0.5)
 
 # ## Step 4 - do the fit, look at the parameter values (do they make sense?), etc...
 
-# In[11]:
+# In[13]:
 
 
-result = qmodel.fit(y_data, params, x=x_data)
+result = qmodel.fit(y_data, params, x=x_data,method="powell")
 
 
-# In[12]:
+# In[14]:
 
 
 result
