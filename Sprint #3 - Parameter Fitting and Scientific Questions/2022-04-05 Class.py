@@ -34,11 +34,58 @@ data.columns=['Bob','Sally']
 data
 
 
+# In[5]:
+
+
+data=pd.read_csv('data/data_fig1.txt')
+data
+
+
+# In[6]:
+
+
+data=pd.read_csv('data/data_fig1.txt',header=None)
+data
+
+
+# In[7]:
+
+
+data=pd.read_csv('data/data_fig1.txt',header=None,sep=" ")
+data
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
 # In[7]:
 
 
 get_ipython().run_line_magic('pinfo', 'pd.read_csv')
 
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# ## Plotting many data points
 
 # In[11]:
 
