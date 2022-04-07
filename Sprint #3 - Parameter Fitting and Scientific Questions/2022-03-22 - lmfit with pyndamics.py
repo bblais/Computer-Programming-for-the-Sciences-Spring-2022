@@ -7,7 +7,7 @@
 get_ipython().run_line_magic('pylab', 'inline')
 
 
-# In[5]:
+# In[2]:
 
 
 import pandas as pd
@@ -15,7 +15,7 @@ import pandas as pd
 
 # https://lmfit.github.io/lmfit-py/
 
-# In[2]:
+# In[3]:
 
 
 from pyndamics3 import Simulation
@@ -44,7 +44,7 @@ sim.params(a=1)
 sim.run(80)
 
 
-# In[3]:
+# In[7]:
 
 
 from pyndamics3.fit import fit, Parameter
@@ -73,6 +73,12 @@ sim.a
 
 
 sim.run(80)
+
+
+# In[12]:
+
+
+plot(sim.t,sim.y,'r-')
 
 
 # ## Logistic growth
