@@ -76,6 +76,57 @@ plot(t1,y1,'b-')
 plot(t2,y2,'r--')
 
 
+# In[29]:
+
+
+figure(figsize=(12,8))
+subplot(2,1,1)
+plot(t_data,h_data,'o')
+plot(t1,y1,'b-')
+
+
+subplot(2,1,2)
+plot(t_data,h_data,'ro')
+plot(t2,y2,'r--')
+xlabel('time')
+
+
+# In[30]:
+
+
+figure(figsize=(12,8))
+subplot(1,2,1)
+plot(t_data,h_data,'o')
+plot(t1,y1,'b-')
+
+
+subplot(1,2,2)
+plot(t_data,h_data,'ro')
+plot(t2,y2,'r--')
+xlabel('time')
+
+
+# In[38]:
+
+
+for i in range(6):
+    subplot(2,3,i+1)
+    plot(rand(400)+5*rand())
+    
+    xlim([0,400])
+    ylim([0,10])
+    
+    if i in [0,1,2]:
+        gca().set_xticklabels([])
+    else:
+        xlabel("Time")
+        
+    if i in [1,2,4,5]:
+        gca().set_yticklabels([])
+    else:
+        ylabel('Magnitude')
+
+
 # In[ ]:
 
 
