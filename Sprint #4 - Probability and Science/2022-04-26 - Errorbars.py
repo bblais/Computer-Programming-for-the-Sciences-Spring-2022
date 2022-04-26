@@ -111,6 +111,19 @@ errorbar(x,y,xerr=xerr,yerr=3*yerr,fmt='o',elinewidth=1)
 text(0,.9,"y errorbars are 3σ")
 
 
+# In[49]:
+
+
+a=['bob','sally','frank']
+
+
+# In[50]:
+
+
+for b in a:
+    print("now we are at ",b)
+
+
 # In[ ]:
 
 

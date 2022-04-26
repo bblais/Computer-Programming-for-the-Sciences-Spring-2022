@@ -26,6 +26,13 @@ filenames=glob('data/1999aa/*v_*.dat')+glob('data/1999ac/*v_*.dat')
 filenames
 
 
+# In[7]:
+
+
+filenames=glob('data/*/*v_*.dat')
+filenames
+
+
 # In[ ]:
 
 
