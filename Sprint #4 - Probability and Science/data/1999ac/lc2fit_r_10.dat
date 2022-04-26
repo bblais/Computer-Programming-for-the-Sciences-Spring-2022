@@ -1,0 +1,9 @@
+#Date : 
+#Flux : 
+#Fluxerr : 
+#ZP : 
+#end : 
+@INSTRUMENT NB99 
+@BAND r10 
+@MAGSYS VEGA 
+238.89 256310.56   5860.42  29

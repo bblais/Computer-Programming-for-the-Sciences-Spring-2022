@@ -1,0 +1,10 @@
+#Date : 
+#Flux : 
+#Fluxerr : 
+#ZP : 
+#end : 
+@INSTRUMENT NB99 
+@BAND b1 
+@MAGSYS VEGA 
+258.91 442977.43   6902.21  29
+295.75  40380.11    704.61  29

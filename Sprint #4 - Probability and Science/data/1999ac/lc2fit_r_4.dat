@@ -1,0 +1,9 @@
+#Date : 
+#Flux : 
+#Fluxerr : 
+#ZP : 
+#end : 
+@INSTRUMENT NB99 
+@BAND r4 
+@MAGSYS VEGA 
+273.84 459290.85  12474.20  29

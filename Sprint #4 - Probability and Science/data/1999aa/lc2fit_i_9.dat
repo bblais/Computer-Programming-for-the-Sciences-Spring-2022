@@ -1,0 +1,10 @@
+#Date : 
+#Flux : 
+#Fluxerr : 
+#ZP : 
+#end : 
+@INSTRUMENT NB99 
+@BAND i9 
+@MAGSYS VEGA 
+997.68    635.56    530.18  29
+997.69   -811.01    529.42  29
