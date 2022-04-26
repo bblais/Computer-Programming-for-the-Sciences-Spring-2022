@@ -88,7 +88,7 @@ plot(a,c,'o')
 # In[38]:
 
 
-errorbar(x=a,y=c,yerr=σc,xerr=σa,fmt='o',elinewidth=1)
+errorbar(x=a,y=c,xerr=σa,yerr=σc,fmt='o',elinewidth=1)
 
 
 # In[39]:
@@ -96,6 +96,19 @@ errorbar(x=a,y=c,yerr=σc,xerr=σa,fmt='o',elinewidth=1)
 
 errorbar(x=a,y=c,yerr=σc,xerr=σa,fmt='o',elinewidth=1)
 ylim([-20,20])
+
+
+# In[48]:
+
+
+x=rand(10)
+y=rand(10)
+
+xerr=.2*rand(10)
+yerr=.01*rand(10)
+
+errorbar(x,y,xerr=xerr,yerr=3*yerr,fmt='o',elinewidth=1)
+text(0,.9,"y errorbars are 3σ")
 
 
 # In[ ]:
