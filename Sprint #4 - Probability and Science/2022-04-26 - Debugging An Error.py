@@ -26,7 +26,7 @@ data=pd.read_csv('Dose-Response Data (1).csv')
 data
 
 
-# In[26]:
+# In[5]:
 
 
 t_data=data["Dose [mg]"]
@@ -34,13 +34,13 @@ y_data=data["Percent Pain Free"]
 plot(t_data,y_data,'o')
 
 
-# In[27]:
+# In[6]:
 
 
 t_data,y_data
 
 
-# In[28]:
+# In[7]:
 
 
 def dose(D,Eo,Em,ED):
@@ -48,7 +48,7 @@ def dose(D,Eo,Em,ED):
     return Eo+((D*Em)/(D+ED))
 
 
-# In[29]:
+# In[8]:
 
 
 x=linspace(0,200,20)
@@ -56,26 +56,26 @@ y=dose(x,5,25,10)
 plot(x,y)
 
 
-# In[30]:
+# In[9]:
 
 
 qmodel=Model(dose)   
 
 
-# In[31]:
+# In[10]:
 
 
 qmodel.param_names
 
 
-# In[32]:
+# In[11]:
 
 
 params=qmodel.make_params()
 params
 
 
-# In[33]:
+# In[12]:
 
 
 params['Eo']=Parameter("Eo",min=3,max=6,value=5)
@@ -83,46 +83,56 @@ params['Em']=Parameter("Em",min=0,max=30,value=25)
 params['ED']=Parameter("ED",min=6,max=60,value=10)
 
 
-# In[34]:
+# In[13]:
 
 
 result = qmodel.fit(y_data, params, D=t_data,method="powell")
 
 
-# In[16]:
+# In[27]:
 
 
-t
+def constant(x,a):
+    return a*ones(x.shape)
 
 
-# In[17]:
+# In[28]:
 
 
-y
+qmodel=Model(constant)   
 
 
-# In[ ]:
+# In[29]:
 
 
+params=qmodel.make_params()
+params
 
 
-
-# In[ ]:
-
+# In[30]:
 
 
+params['a']=Parameter("a",min=0,value=5)
 
 
-# In[12]:
+# In[31]:
 
 
-result = qmodel.fit(y, params, D=x,method="powell")
+result = qmodel.fit(y_data, params, x=t_data,method="powell")
 
 
-# In[15]:
+# In[32]:
 
 
-plot([1,2,3],[4,5,6,7],'o')
+result
+
+
+# In[33]:
+
+
+x=linspace(0,200,20)
+y=constant(x,5)
+plot(x,y)
 
 
 # In[ ]:
