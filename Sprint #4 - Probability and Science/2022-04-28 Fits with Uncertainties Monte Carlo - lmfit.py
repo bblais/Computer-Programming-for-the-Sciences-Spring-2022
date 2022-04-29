@@ -34,43 +34,46 @@ x_data,y_data=(array([-10.        ,  -8.94736842,  -7.89473684,  -6.84210526,
          62.75223289,  58.16212626, 111.04251023,  83.52494712]))
 
 
-# In[5]:
+# In[49]:
 
 
 def quad(x,a=1,b=1,c=1):
     return a*x**2 + b*x + c
 
+def quadt(t,a=1,b=1,c=1):
+    return a*t**2 + b*t + c
 
-# In[6]:
+
+# In[50]:
 
 
-model=Model(quad)   # from lmfit
+model=Model(quadt)   # from lmfit
 params=model.make_params()
 
 
-# In[7]:
+# In[51]:
 
 
 params['a']=Parameter("a",min=0,value=0.5)
 
 
-# In[29]:
+# In[52]:
 
 
-results = model.fit(y_data, params, x=x_data,method="powell")
+results = model.fit(y_data, params, t=x_data,method="powell")
 
 
-# In[30]:
+# In[53]:
 
 
 plot(x_data,y_data,'o')
 
 x=linspace(-12,12,100)
-y=results.eval(x=x)
+y=results.eval(t=x)
 plot(x,y,'-')
 
 
-# In[31]:
+# In[54]:
 
 
 def run_sim_monte_carlo(x,results,σ=1,color='b',N=300):
@@ -81,8 +84,9 @@ def run_sim_monte_carlo(x,results,σ=1,color='b',N=300):
     for key in results.params:
         D[key]=results.params[key].value
 
-
-    y=work_results.eval(**D,x=x)
+    xvarname=list(results.userkws.keys())[0]
+    
+    y=work_results.eval(**D,**{xvarname:x})
     plot(x,y,color+'-')
 
     for i in range(N):
@@ -92,11 +96,11 @@ def run_sim_monte_carlo(x,results,σ=1,color='b',N=300):
         for key in results.params:
             D[key]=results.params[key].value+randn()*results.params[key].stderr*σ
 
-        y=work_results.eval(**D,x=x)
+        y=work_results.eval(**D,**{xvarname:x})
         plot(x,y,color+'-',alpha=0.01)
 
 
-# In[32]:
+# In[55]:
 
 
 plot(x_data,y_data,'o')
